@@ -28,6 +28,9 @@ class Contact
 		# find 
 	end
 
+	def remove
+   	 @@contacts.delete_if { |contact| contact.id == self.id }
+  	end
 
 	def self.all
 		@@contacts
