@@ -3,7 +3,7 @@ class Contact
 	attr_accessor :first_name, :last_name, :email, :notes
 	
 	@@contacts = []
-	@@id = 1
+	@@id = 1000
 
 	def initialize(first_name, last_name, email, notes)
 		@first_name = first_name
@@ -20,12 +20,8 @@ class Contact
 		@@contacts << new_contact
 	end
 
-	def self.find(id)
-		@@contacts.each do |contact|
-			if contact.id == id
-				return contact
-			end
-		end
+	def self.find(contact_id)
+    	@@contacts.find { |contact| contact.id == contact_id }
 	end
 
 	def update(field, new_value)
