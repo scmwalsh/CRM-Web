@@ -5,32 +5,33 @@ class Contact
 	@@contacts = []
 	@@id = 1
 
-	def initialize(first_name, last_name, email, notes)
+	def initialize(first_name, last_name, options = {})
 		@first_name = first_name
 		@last_name = last_name
-		@email = email
-		@notes = notes
+		@email = options[:email]
+		@notes = options[:notes]
 		@id = @@id
 		@@id += 1
 	end
 
-	def self.create(first_name, last_name, email, notes)
-		new_contact = Contact.new(first_name, last_name, email, notes)
-		
+	def self.create(first_name, last_name, options = {})
+		new_contact = Contact.new(first_name, last_name, options)	
 		@@contacts << new_contact
+		return new_contact
 	end
 
-	def self.find(contact_id)
-    	@@contacts.find { |contact| contact.id == contact_id }
+	def self.find(id)
+		@@contacts.each do |contact|
+			if contact.id == id
+				return contact
+			end
+		end
 	end
 
 	def update(field, new_value)
-		# find 
+		self.send("#{field}=", new_value) 
 	end
 
-	def remove
-   	 @@contacts.delete_if { |contact| contact.id == self.id }
-  	end
 
 	def self.all
 		@@contacts
@@ -39,13 +40,49 @@ class Contact
 	def full_name
 		"#{first_name} #{last_name}"
 	end
-# 	def first_name
-# 		@first_name
-# end
 
-# 	def first_name=(new_first_name)
-# 		@first_name = new_first_name
-# 	end
+	def self.delete_all
+		@@contacts = []
+	end
+
+	def self.delete_contact
+		@@contacts.delete_if { |contact| contact.id == user_specified_id}
+	end
+
+	def self.search_by_attribute(field, value)
+		contacts =  []
+		@@contacts.each do |contact|
+			if field == "first_name"
+				if value == contact.first_name
+					contacts << contact
+				end
+			elsif field == "last_name"
+				if value == contact.last_name
+					contacts << contact
+				end
+			elsif field == "email"
+				if value == contact.email
+					contacts << contact
+				end
+			elsif field == "notes"
+				if value == contact.notes
+					contacts << contact
+
+				end
+			end
+
+		end
+
+		return contacts
+
+
+
+
+
+			
+
+	end
+
 
 
 end
