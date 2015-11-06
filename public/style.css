@@ -1,20 +1,18 @@
 p {
 	font-size: 30px;
-	font-family: 'Indie Flower', cursive;
-	background-color: #607D8B
-;
+	font-family: 'Open Sans', sans-serif;
+	background-color: #C8C8C8;
 	padding-left: 20px;
 
 }
 
 body {
-	background-color: #90A4AE;
+	background-color: #D8D8D8;
 }
 
 #first {
-	background-color: #607D8B
-;
 	text-align: center;
+	font-family: 'Open Sans', sans-serif;
 }
 
 h3 {
@@ -31,39 +29,34 @@ img.displayed {
     display: block;
     margin-left: auto;
     margin-right: auto;
+
+}
+
+footer {
+	text-align: center;
+	font-size: 10px
 }
 
 
-
-
-
-
-
-
-
-
-/* {
-	box-sizing: border-box;
-}
-
-#second {
-	font-size: 32px;
-	color: green;
-}
-
-p {
-	color: red;
-}
 
 .hightlight {
 	background-color: aqua;
 }
 
-a {
-	color:organge;
+#third {
+	border-collapse: 10px;
+	text-align: left;
+	font-size:20px;
+
 }
 
-#second a {
-	color: red;
-	font-size: 100px;
+ul {
+	text-align: left;
+	border: solid;
 }
+
+h1 {
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+}
+

@@ -5,11 +5,16 @@
 	<title>Document</title>
 </head>
 <body>
+
+<form method="get" action="/">
+<button type="submit">Home</button>
+</form>
+
 	<h1>All Contacts</h1>
 
 <ul>
 <% Contact.all.each do |contact| %>
-  <li><a href="/contacts/<%= contact.id %>"><%= contact.first_name %> <%= contact.last_name %></a></li>
+  <li><a href="/contacts/<%= contact.id %>">Name: <%= contact.first_name %> <%= contact.last_name %> <br> Email: <%= contact.email %> <br> Notes: <%= contact.notes %></a></li>
 <% end %>
 </ul>
 </body>
