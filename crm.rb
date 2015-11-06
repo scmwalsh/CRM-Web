@@ -1,10 +1,30 @@
-require_relative 'contact'
+# require_relative 'contact'
 require 'sinatra'
 require 'data_mapper'
 
 DataMapper.setup(:default, "sqlite3:database.sqlite3")
 
+class Contact
+    include DataMapper::Resource
 
+    property :id, Serial
+    property :first_name, String
+    property :last_name, String
+    property :email, String
+    property :notes, String
+  end
+
+  DataMapper.finalize
+  DataMapper.auto_upgrade!
+
+  #   attr_accessor: :id, :first_name, :last_name, :email, :notes
+
+  # def initialize(first_name, last_name, email, notes)
+  #   @first_name = first_name
+  #   @last_name = last_name
+  #   @email = email
+  #   @notes = notes
+  # end
 
 get '/' do
 	@crm_app_name = "Design"
